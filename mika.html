@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Combat Archive / Save Data Build</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="side-top">
+          <button
+            class="icon-btn"
+            id="toggle-side"
+            type="button"
+            aria-expanded="true"
+            aria-controls="sidebar"
+            aria-label="Collapse navigation"
+          >
+            ☰
+          </button>
+          <button class="back-btn" type="button" aria-label="Back">
+            <span class="arrow">←</span><span class="label">Back</span>
+          </button>
+        </div>
+
+        <div class="brand">
+          <img src="assets/logo.png" alt="Chaos Zero Nightmare" />
+        </div>
+
+        <section class="side-section">
+          <div class="eyebrow">CURRENT BUILD</div>
+          <div class="build-box">
+            <strong>MIKA</strong>
+            <span>8 cards</span>
+          </div>
+        </section>
+
+        <section class="side-section status-section">
+          <div class="eyebrow">BUILD STATUS</div>
+          <div class="valid"><span>●</span> Valid</div>
+          <span class="muted">0 / 180 pt</span>
+          <span class="muted">8 / 40 cards</span>
+        </section>
+
+        <section class="side-section character-section">
+          <div class="eyebrow">CHARACTER</div>
+          <div class="character-list">
+            <button class="character selected" type="button">
+              <img src="assets/mika.png" alt="Mika" /><span class="label"
+                >Mika</span
+              >
+            </button>
+            <button class="character" type="button">
+              <img src="assets/aria.png" alt="Aria" /><span class="label"
+                >Aria</span
+              >
+            </button>
+            <button class="character" type="button">
+              <img src="assets/kaito.png" alt="Kaito" /><span class="label"
+                >Kaito</span
+              >
+            </button>
+            <button class="character" type="button">
+              <img src="assets/lila.png" alt="Lila" /><span class="label"
+                >Lila</span
+              >
+            </button>
+            <button class="character" type="button">
+              <img src="assets/zain.png" alt="Zain" /><span class="label"
+                >Zain</span
+              >
+            </button>
+          </div>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <section class="deck-overview">
+          <header class="workspace-header">
+            <div>
+              <div class="eyebrow">COMBAT ARCHIVE / SAVE DATA BUILD</div>
+              <h1>Mika</h1>
+            </div>
+          </header>
+
+          <div class="card-grid">
+            <article class="card selected-card">
+              <img
+                class="card-art"
+                src="assets/mika/water-arrow.png"
+                alt="Water Arrow"
+              />
+              <div class="top-overlay">
+                <div class="cost">1</div>
+                <div class="card-heading">
+                  <strong>Water Arrow</strong
+                  ><span
+                    ><img src="assets/card-type/attack.jpeg" alt="" /> Basic
+                    Attack</span
+                  >
+                </div>
+              </div>
+              <div class="bottom-overlay">
+                <div class="divider"></div>
+                <p>100% Damage</p>
+              </div>
+            </article>
+
+            <article class="card selected-card">
+              <img
+                class="card-art"
+                src="assets/mika/water-barrier.png"
+                alt="Water Barrier"
+              />
+              <div class="top-overlay">
+                <div class="cost">1</div>
+                <div class="card-heading">
+                  <strong>Water Barrier</strong
+                  ><span
+                    ><img src="assets/card-type/skill.jpeg" alt="" /> Basic
+                    Skill</span
+                  >
+                </div>
+              </div>
+              <div class="bottom-overlay">
+                <div class="divider"></div>
+                <p>Heal 130%</p>
+              </div>
+            </article>
+
+            <article class="card selected-card">
+              <img
+                class="card-art"
+                src="assets/mika/water-barrier.png"
+                alt="Water Barrier"
+              />
+              <div class="top-overlay">
+                <div class="cost">1</div>
+                <div class="card-heading">
+                  <strong>Water Barrier</strong
+                  ><span
+                    ><img src="assets/card-type/skill.jpeg" alt="" /> Basic
+                    Skill</span
+                  >
+                </div>
+              </div>
+              <div class="bottom-overlay">
+                <div class="divider"></div>
+                <p>Heal 130%</p>
+              </div>
+            </article>
+
+            <article class="card selected-card">
+              <img
+                class="card-art"
+                src="assets/mika/source-of-water.png"
+                alt="Source of Water"
+              />
+              <div class="top-overlay">
+                <div class="cost">0</div>
+                <div class="card-heading">
+                  <strong>Source of Water</strong
+                  ><span
+                    ><img src="assets/card-type/skill.jpeg" alt="" />
+                    Skill</span
+                  >
+                </div>
+              </div>
+              <div class="bottom-overlay">
+                <div class="divider"></div>
+                <p>Heal 100%<br />Gain 1 AP</p>
+              </div>
+            </article>
+
+            <article class="card selected-card">
+              <img
+                class="card-art"
+                src="assets/mika/blessing-of-waves.png"
+                alt="Blessing of Waves"
+              />
+              <div class="top-overlay">
+                <div class="cost">1</div>
+                <div class="card-heading">
+                  <strong>Blessing of Waves</strong
+                  ><span
+                    ><img src="assets/card-type/skill.jpeg" alt="" />
+                    Skill</span
+                  >
+                </div>
+              </div>
+              <div class="bottom-overlay">
+                <p class="tag">[ Retain ]</p>
+                <div class="divider"></div>
+                <p>Increase Heal Amount by 30% for each AP</p>
+              </div>
+            </article>
+
+            <article class="card selected-card">
+              <img
+                class="card-art"
+                src="assets/mika/tactical-analysis.png"
+                alt="Tactical Analysis"
+              />
+              <div class="top-overlay">
+                <div class="cost">1</div>
+                <div class="card-heading">
+                  <strong>Tactical Analysis</strong
+                  ><span
+                    ><img src="assets/card-type/skill.jpeg" alt="" />
+                    Skill</span
+                  >
+                </div>
+              </div>
+              <div class="bottom-overlay">
+                <div class="divider"></div>
+                <p>1 Wave<br />+50% Heal Amount for 1 turn</p>
+              </div>
+            </article>
+
+            <article class="card selected-card">
+              <img
+                class="card-art"
+                src="assets/mika/whirlpool.png"
+                alt="Whirlpool"
+              />
+              <div class="top-overlay">
+                <div class="cost">2</div>
+                <div class="card-heading">
+                  <strong>Whirlpool</strong
+                  ><span
+                    ><img src="assets/card-type/attack.jpeg" alt="" />
+                    Attack</span
+                  >
+                </div>
+              </div>
+              <div class="bottom-overlay">
+                <div class="divider"></div>
+                <p>
+                  200% Damage to all enemies<br />Heal 50% for each target hit
+                </p>
+              </div>
+            </article>
+
+            <article class="card selected-card">
+              <img class="card-art" src="assets/mika/deluge.png" alt="Deluge" />
+              <div class="top-overlay">
+                <div class="cost">1</div>
+                <div class="card-heading">
+                  <strong>Deluge</strong
+                  ><span
+                    ><img src="assets/card-type/upgrade.jpeg" alt="" />
+                    Upgrade</span
+                  >
+                </div>
+              </div>
+              <div class="bottom-overlay">
+                <p class="tag">[ Unique ]</p>
+                <div class="divider"></div>
+                <p>1 Wave<br />At the start of the turn, 1 Wave</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="selection-hint">
+            Select a card to see details and edit options.
+          </div>
+        </section>
+
+        <aside class="stats-panel" id="stats-panel">
+          <div class="panel-head">
+            <h2 class="panel-title">BUILD OVERVIEW</h2>
+            <button
+              class="icon-btn"
+              id="toggle-stats"
+              type="button"
+              aria-expanded="true"
+              aria-controls="panel-body"
+              aria-label="Collapse build panel"
+            >
+              »
+            </button>
+          </div>
+          <div class="panel-body" id="panel-body">
+            <div class="stats-grid">
+              <div class="stat">
+                <span>Total Cards</span><strong>8 / 40</strong
+                ><small>Minimum 1 card</small>
+              </div>
+              <div class="stat">
+                <span>Faint Memory</span><strong>0 / 180</strong
+                ><small>Memory points · pt</small>
+              </div>
+              <div class="stat">
+                <span>Duplicate Copies</span><strong>0 / 3</strong
+                ><small>Duplicate operations</small>
+              </div>
+              <div class="stat">
+                <span>Removed Cards</span><strong>0 / 5</strong
+                ><small>Removal operations</small>
+              </div>
+            </div>
+
+            <div class="panel-divider"></div>
+            <h2>EDIT FEATURES</h2>
+            <div class="actions">
+              <button type="button">
+                <span class="action-icon">＋</span>Add Card
+              </button>
+              <button type="button">
+                <span class="action-icon">♲</span>Remove Card
+              </button>
+              <button type="button">
+                <span class="action-icon">⧉</span>Duplicate Card
+              </button>
+              <button type="button">
+                <span class="action-icon">✦</span>Unique Epiphany
+              </button>
+              <button type="button">
+                <span class="action-icon">✦</span>Divine Epiphany
+              </button>
+              <button type="button">
+                <span class="action-icon">✦</span>Common Epiphany
+              </button>
+            </div>
+
+            <div class="panel-divider footer-divider"></div>
+            <p class="footer-note">
+              This is a fan-made build checker tool. No data is saved. For
+              reference only.
+            </p>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script>
+      const shell = document.querySelector(".app-shell");
+      const panel = document.getElementById("stats-panel");
+      const sideBtn = document.getElementById("toggle-side");
+      const statsBtn = document.getElementById("toggle-stats");
+
+      function setSide(collapsed) {
+        shell.classList.toggle("side-collapsed", collapsed);
+        sideBtn.setAttribute("aria-expanded", String(!collapsed));
+        sideBtn.setAttribute(
+          "aria-label",
+          collapsed ? "Expand navigation" : "Collapse navigation",
+        );
+      }
+      function setStats(collapsed) {
+        panel.classList.toggle("collapsed", collapsed);
+        statsBtn.setAttribute("aria-expanded", String(!collapsed));
+        statsBtn.setAttribute(
+          "aria-label",
+          collapsed ? "Expand build panel" : "Collapse build panel",
+        );
+        statsBtn.textContent = collapsed ? "«" : "»";
+      }
+
+      sideBtn.addEventListener("click", () =>
+        setSide(!shell.classList.contains("side-collapsed")),
+      );
+      statsBtn.addEventListener("click", () =>
+        setStats(!panel.classList.contains("collapsed")),
+      );
+
+      // Default state by screen width
+      setSide(window.innerWidth < 1100);
+      setStats(window.innerWidth < 1300);
+    </script>
+  </body>
+</html>
