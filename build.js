@@ -28,7 +28,7 @@ $("side-characters").innerHTML = sideChars
     (
       c,
     ) => `<a class="character${c.id === CHAR.id ? " selected" : ""}" href="${c.id}.html">
-      <img src="assets/${c.id}.png" alt="" onerror="this.style.visibility='hidden'" />
+      <img src="assets/${c.id}.webp" alt="" onerror="this.style.visibility='hidden'" />
       <span class="label">${c.name}</span></a>`,
   )
   .join("");

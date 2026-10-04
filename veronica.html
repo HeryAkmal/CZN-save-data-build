@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beryl / Combat Archive</title>
+    <title>Veronica / Combat Archive</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -37,7 +37,7 @@
         <section class="side-section">
           <div class="eyebrow">CURRENT BUILD</div>
           <div class="build-box">
-            <strong id="build-name">MIKA</strong>
+            <strong id="build-name">BERYL</strong>
             <span id="build-count">8 cards</span>
           </div>
         </section>
@@ -65,7 +65,7 @@
                 >Chaos Zero Nightmare</a
               >
               <span style="color: var(--muted-dark)"
-                >/ <span id="char-name">Mika</span></span
+                >/ <span id="char-name">Veronica</span></span
               >
             </nav>
           </header>
@@ -134,161 +134,136 @@
         Array.from({ length: n }, () => ({ ...card, dup: true }));
 
       const START = [
-        "launcher",
-        "charge-launcher",
-        "barrier",
-        "opening-found",
-        "charged-shot",
-        "guilty-pleasure",
-        "unlimited-firepower",
-        "heavy-weapons-specialist",
+        "rapid-fire",
+        "rapid-fire",
+        "illusion-of-golden-daffodils",
+        "firing-preparation",
+        "repose",
+        "pendant-of-resolution",
+        "sir-kowalski",
+        "bombardment-prep",
       ];
 
       const CHAR = {
-        id: "beryl",
-        name: "Beryl",
+        id: "veronica",
+        name: "Veronica",
         startingDeck: START,
         cardDB: {
-          launcher: {
-            name: "Launcher",
+          "rapid-fire": {
+            name: "Rapid Fire",
             cost: 1,
             type: "Basic Attack",
             icon: "attack",
             starting: true,
             text: "100% Damage",
           },
-          "charge-launcher": {
-            name: "Charge Launcher",
-            cost: 2,
-            type: "Basic Attack",
-            icon: "attack",
-            starting: true,
-            text: "220% Damage",
-          },
-          barrier: {
-            name: "Barrier",
+          "illusion-of-golden-daffodils": {
+            name: "Illusion of Golden Daffodils",
             cost: 1,
             type: "Basic Skill",
             icon: "skill",
             starting: true,
             text: "100% Shield",
           },
-          "opening-found": {
-            name: "Opening Found",
+          "firing-preparation": {
+            name: "Firing Preparation",
+            cost: 1,
+            type: "Upgrade",
+            icon: "upgrade",
+            starting: true,
+            tags: ["Unique / Initiation"],
+            text: "Create 1 Ballista card(s)<br/>At the start of the turn, create 1 Ballista card(s)",
+          },
+          repose: {
+            name: "Repose",
             cost: 1,
             type: "Skill",
             icon: "skill",
-            tags: ["Retain"],
-            text: "160% Damage.<br />Retain: Add 1 Hit(s) for 1 turn.",
+            text: "110% Shield<br />Draw 2 card(s) from other combatant",
             epiphanies: {
-              upgrade: {
-                cost: 1,
-                type: "Upgrade",
-                icon: "upgrade",
-                text: "When a card of this unit is retained, 150% Extra Attack to random enemies.",
+              draw: {
+                cost: 0,
+                kind: "divine",
+                sign: "nihilum",
+                text: "Draw 2 other combatant's card(s){dv}Draw 1",
+              },
+              ap: {
+                cost: 0,
+                kind: "divine",
+                sign: "nihilum",
+                text: "Draw 2 other combatant's card(s)<br />{dv}Gain 1 AP",
               },
             },
           },
-          "charged-shot": {
-            name: "Charged Shot",
-            cost: 2,
-            type: "attack",
-            icon: "attack",
-            tags: ["Retain"],
-            text: "270% Damage.<br />Retain: Damage +135%.",
-          },
-          "guilty-pleasure": {
-            name: "Guilty Pleasure",
-            cost: 0,
-            type: "skill",
-            icon: "skill",
-            tags: ["Exhaust"],
-            text: "Gain 1 AP.<br />Retain: Gain 2 AP.",
+          "pendant-of-resolution": {
+            name: "Pendant of Resolution",
+            cost: 1,
+            type: "upgrade",
+            icon: "upgrade",
+            text: "When a Skill Card of a different unit is activated, 1 Reload",
             epiphanies: {
-              retain: {
+              reduce: {
                 kind: "divine",
-                tags: "",
-                text: "Draw 1<br />Activate all Retain effects of cards of this unit in hand<br />{dv} Gain 1 AP",
-              },
-              morale: {
-                kind: "divine",
-                addTags: ["Initiation"],
-                text: "Draw 3<br/>1 Morale<br/>{dv}Apply Initiation to this card",
-              },
-              morale2: {
-                kind: "divine",
-                text: "Draw 3<br/>1 Morale<br/>{dv}1 AP",
+                sign: "diallos",
+                text: "When a Skill Card of a different unit is activated, 1 Reload<br />{dv} reduce the Cost of this card by 1",
               },
             },
           },
-          "unlimited-firepower": {
-            name: "Unlimited Firepower",
+          "sir-kowalski": {
+            name: "Sir Kowalski",
             cost: 1,
             type: "skill",
             icon: "skill",
-            text: "114% Shield.<br />80% Damage Amount to the next Attack Card of this unit activated.",
+            text: "Select 1 Ballista card in hand and +100% Damage Amount until activated <br />Draw 1",
             epiphanies: {
-              upgradeDmg: {
-                cost: 1,
-                type: "Upgrade",
-                icon: "upgrade",
-                text: "Increases Damage Amount of Attacks Cards of this unit by 30%.",
+              reduce: {
+                kind: "divine",
+                sign: "nihilum",
+                text: "Select 1 Ballista card in hand and +150% Damage Amount until activated <br />Draw 2<br/>{dv} reduce the Cost of this card by 1",
               },
             },
           },
-          "heavy-weapons-specialist": {
-            name: "Heavy Weapons Specialist",
-            cost: 0,
-            type: "skill",
-            icon: "skill",
-            text: "Create 1 Opening Found or Charged Shot, then apply Exhaust to that card and decrease Cost by 1 until activated.",
+          "bombardment-prep": {
+            name: "Bombardment Prep",
+            cost: 1,
+            type: "upgrade",
+            icon: "upgrade",
+            tags: ["Unique"],
+            text: "increase max stack of Reload by 1<br/>2 Reload",
           },
         },
+
         presets: {
           default: {
             label: "Default Build",
             desc: "Starter deck.",
             cards: [...START],
           },
-          openingFound: {
-            label: "Opening Found Build",
-            desc: "Nembak otomatis saat retain.",
+          pureDraw: {
+            label: "Pure Draw Support Build",
+            desc: "Pot of Greed.",
             cards: [
-              { id: "opening-found", epi: "upgrade", sign: "unique" },
-              ...dupes(3, {
-                id: "opening-found",
-                epi: "upgrade",
-                sign: "unique",
+              { id: "repose", epi: "draw" },
+              ...dupes(2, {
+                id: "repose",
+                epi: "draw",
               }),
-              { id: "guilty-pleasure", epi: "retain", sign: "vytor" },
-              { id: "unlimited-firepower", epi: "upgradeDmg", sign: "unique" },
-              { id: "spore-harvester", epi: "draw", sign: "unique" },
-              { id: "negotiate", epi: "draw", sign: "unique" },
-              { id: "negotiate", epi: "draw", sign: "unique" },
+              { id: "pendant-of-resolution", epi: "reduce" },
+              { id: "sir-kowalski", epi: "reduce" },
             ],
           },
-          Initiator: {
-            label: "Initiator Build",
-            desc: "Tukang draw, buff, sekalian sub-DPS.",
+
+          apDraw: {
+            label: "AP Draw Support Build",
+            desc: "Draw dan support AP.",
             cards: [
-              { id: "opening-found", epi: "upgrade", sign: "unique" },
-              { id: "guilty-pleasure", epi: "morale", sign: "vytor" },
-              ...dupes(1, {
-                id: "guilty-pleasure",
-                epi: "morale",
-                sign: "vytor",
+              { id: "repose", epi: "ap" },
+              ...dupes(2, {
+                id: "repose",
+                epi: "ap",
               }),
-              {
-                id: "guilty-pleasure",
-                epi: "morale2",
-                sign: "nihilum",
-              },
-              ...dupes(1, {
-                id: "guilty-pleasure",
-                epi: "morale2",
-                sign: "nihilum",
-              }),
-              { id: "unlimited-firepower", epi: "upgradeDmg", sign: "unique" },
+              { id: "pendant-of-resolution", epi: "reduce" },
+              { id: "sir-kowalski", epi: "reduce" },
             ],
           },
         },
