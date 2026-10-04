@@ -586,6 +586,9 @@ a.character {
   font-size: 16px;
   line-height: 1.2;
   color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .card-heading span {
   display: flex;

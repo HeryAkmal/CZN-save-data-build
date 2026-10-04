@@ -25,4 +25,12 @@ const NEUTRAL = {
       },
     },
   },
+  persona: {
+    name: "Persona",
+    cost: 1,
+    type: "Skill",
+    icon: "skill",
+    tags: ["Unique / Exhaust 2"],
+    text: "250% Shield<br/>Move 1 random Attack Card(s) of this unit from Graveyard to hand",
+  },
 };

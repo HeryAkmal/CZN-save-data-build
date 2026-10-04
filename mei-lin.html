@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mika / Combat Archive</title>
+    <title>Mei Lin / Combat Archive</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -37,7 +37,7 @@
         <section class="side-section">
           <div class="eyebrow">CURRENT BUILD</div>
           <div class="build-box">
-            <strong id="build-name">MIKA</strong>
+            <strong id="build-name">MEI LIN</strong>
             <span id="build-count">8 cards</span>
           </div>
         </section>
@@ -65,7 +65,7 @@
                 >Chaos Zero Nightmare</a
               >
               <span style="color: var(--muted-dark)"
-                >/ <span id="char-name">Mika</span></span
+                >/ <span id="char-name">Mei Lin</span></span
               >
             </nav>
           </header>
@@ -134,117 +134,109 @@
         Array.from({ length: n }, () => ({ ...card, dup: true }));
 
       const START = [
-        "water-arrow",
-        "water-barrier",
-        "water-barrier",
-        "source-of-water",
-        "blessing-of-waves",
-        "tactical-analysis",
-        "whirlpool",
-        "deluge",
+        "strike",
+        "strike",
+        "flame-dragon-guardian",
+        "flame-dragon's-jewel",
+        "rising-dragon-spire",
+        "unity-of-attack-and-defense",
+        "spirit-of-the-aromata",
+        "flame-dragon's-sovereignty",
       ];
 
       const CHAR = {
-        id: "mika",
-        name: "Mika",
+        id: "mei-lin",
+        name: "Mei Lin",
         startingDeck: START,
         cardDB: {
-          "water-arrow": {
-            name: "Water Arrow",
+          strike: {
+            name: "Strike",
             cost: 1,
             type: "Basic Attack",
             icon: "attack",
             starting: true,
             text: "100% Damage",
           },
-          "water-barrier": {
-            name: "Water Barrier",
+          "flame-dragon-guardian": {
+            name: "Flame Dragon Guardian",
             cost: 1,
             type: "Basic Skill",
             icon: "skill",
             starting: true,
-            text: "Heal 130%",
+            text: "100% Shield",
           },
-          "source-of-water": {
-            name: "Source of Water",
-            cost: 0,
-            type: "Skill",
-            icon: "skill",
-            text: "Heal 100%<br />Gain 1 AP",
+          "flame-dragon's-jewel": {
+            name: "Flame Dragon's Jewel",
+            cost: 1,
+            type: "upgrade",
+            icon: "upgrade",
+            tags: ["Unique / Initiation"],
+            text: "Increase Damage Amount of Attack Cards of this unit by 20%<br/>When an Attack Card is activated, 1 Passion Weakness to the target",
             epiphanies: {
-              recoverDraw: {
-                cost: 1,
-                kind: "divine",
-                sign: "nihilum",
-                text: "Heal 171%<br />Gain 2 AP<br />On Recover, decrease Cost by 1 for 1 turn until activated<br />{dv} Draw 1",
-              },
-              retainHeal: {
-                kind: "divine",
-                sign: "divine-source-heal",
-                tags: ["Retain"],
-                text: "Heal 222%<br />Gain 1 AP<br />Increase Heal Amount of the next card activated by 50%<br />{dv} Increase Heal Amount of this card by 30%",
+              upAmount: {
+                sign: "unique",
+                text: "Increase Damage Amount of Attack Cards of this unit by 30%<br/>When an Attack Card is activated, 1 Passion Weakness to the target",
               },
             },
           },
-          "blessing-of-waves": {
-            name: "Blessing of Waves",
+          "rising-dragon-spire": {
+            name: "Rising Dragon Spire",
+            cost: 1,
+            type: "attack",
+            icon: "attack",
+            text: "100% Damage<br/>2 Ember<br/>Combo: Add 1 hit(s)",
+            epiphanies: {
+              reduce: {
+                kind: "divine",
+                cost: 2,
+                sign: "sekred",
+                text: "150% Damage<br/>Add 1 Hit for each Passion Card activated this turn<br>{dv}Reduce Cost of this card by 1",
+              },
+            },
+          },
+          "unity-of-attack-and-defense": {
+            name: "Unity of Attack and Defense",
+            cost: 0,
+            type: "Skill",
+            icon: "skill",
+            text: "Draw 2 Basic Card(s) of this unit, then decrease Cost of those cards by 1 for 1 turn until activated",
+            epiphanies: {
+              move: {
+                sign: "unique",
+                text: "Move 2 Basic Card(s) of this unit, then decrease Cost of those cards by 1 for 1 turn until activated",
+              },
+              create: {
+                kind: "divine",
+                sign: "nihilum",
+                text: "Create 2 Strike card(s)<br/>Decrease Cost of those cards by 1<br>{dv}1 Morale, 1 Resolve",
+              },
+            },
+          },
+          "spirit-of-the-aromata": {
+            name: "Spirit of the Aromata",
             cost: 1,
             type: "Skill",
             icon: "skill",
             tags: ["Retain"],
-            text: "Increase Heal Amount by 30% for each AP",
+            text: "For 1 turn, when a card of this unit is activated, +20% Damage Amount to this unit",
             epiphanies: {
-              healAmp: {
-                kind: "divine",
-                sign: "divine-blessing",
-                text: "Heal 222%<br />Increase Heal Amount of the next card activated by 20% for each AP<br />{dv} Increase Heal Amount of this card by 30%",
-              },
-            },
-          },
-          "tactical-analysis": {
-            name: "Tactical Analysis",
-            cost: 1,
-            type: "Skill",
-            icon: "skill",
-            text: "1 Wave<br />+50% Heal Amount for 1 turn",
-            epiphanies: {
-              upgrade: {
-                cost: 0,
-                type: "Upgrade",
-                icon: "upgrade",
-                text: "2 Wave<br />+50% Heal Amount",
-              },
-              longHeal: {
-                cost: 0,
+              passion: {
                 sign: "unique",
-                text: "2 Wave<br />+100% Heal Amount of this unit for 1 turn",
+                text: "For 1 turn, when a Passion card is activated, +20% Damage Amount to this unit",
+              },
+              basic: {
+                sign: "unique",
+                text: "For 1 turn, when a card of this unit is activated, +50% Damage Amount to Basic Cards of this unit",
               },
             },
           },
-          whirlpool: {
-            name: "Whirlpool",
+          "flame-dragon's-sovereignty": {
+            name: "Flame Dragon's Sovereignty",
             cost: 2,
             type: "Attack",
             icon: "attack",
-            text: "200% Damage to all enemies<br />Heal 50% for each target hit",
-            epiphanies: {
-              drawHeal: {
-                kind: "divine",
-                sign: "divine-whirlpool",
-                text: "Heal 114%<br />114%(228%) Damage to all enemies<br />Increase Damage Amount equal to Heal Amount of this card<br />{dv} Draw 1 card(s) of this unit",
-              },
-            },
-          },
-          deluge: {
-            name: "Deluge",
-            cost: 1,
-            type: "Upgrade",
-            icon: "upgrade",
-            tags: ["Unique"],
-            text: "1 Wave<br />At the start of the turn, 1 Wave",
-            epiphanies: {
-              initiation: { tags: ["Unique", "Initiation"] },
-            },
+            tags: ["Weakness Attack"],
+            text: "300% Damage<br/>If the target is in a Ravage state, guaranteed Critical<br/>Destroy: Retain Ember",
           },
         },
         presets: {
@@ -253,38 +245,47 @@
             desc: "Deck starter.",
             cards: [...START],
           },
-          support: {
-            label: "Support AP Build",
-            desc: "AP sekebon biar g kehabisan.",
+          dragonSpire: {
+            label: "Dragon Spire Build",
+            desc: "Tiap make Dragon Spire bakal nambah 1 hit.",
             cards: [
-              { id: "source-of-water", epi: "recoverDraw", sign: "nihilum" },
-              ...dupes(3, {
-                id: "source-of-water",
-                epi: "recoverDraw",
-                sign: "nihilum",
+              { id: "strike" },
+              { id: "strike" },
+              { id: "flame-dragon's-jewel", epi: "upAmount" },
+              { id: "rising-dragon-spire", epi: "reduce" },
+              ...dupes(2, {
+                id: "rising-dragon-spire",
+                epi: "reduce",
               }),
-              { id: "tactical-analysis", epi: "upgrade", sign: "unique" },
-              { id: "deluge", epi: "initiation", sign: "unique" },
+              { id: "unity-of-attack-and-defense", epi: "move" },
+              ...dupes(1, {
+                id: "unity-of-attack-and-defense",
+              }),
+              { id: "spirit-of-the-aromata", epi: "passion" },
+              { id: "persona" },
             ],
           },
-          healer: {
-            label: "Healer Build",
-            desc: "Healer kekebalan tubuh tahan 10 turn",
+          basicSpam: {
+            label: "Basic Attack Spam Build",
+            desc: "Spam saja basic attack itu tanpa mikir, lalu akhiri dengan Dragon Spire",
             cards: [
-              { id: "source-of-water", epi: "retainHeal", sign: "kyrken" },
-              ...dupes(2, {
-                id: "source-of-water",
-                epi: "retainHeal",
-                sign: "kyrken",
+              { id: "strike" },
+              { id: "strike" },
+              { id: "flame-dragon's-jewel", epi: "upAmount" },
+              { id: "rising-dragon-spire", epi: "reduce" },
+              { id: "unity-of-attack-and-defense", epi: "move" },
+              ...dupes(3, {
+                id: "unity-of-attack-and-defense",
+                epi: "create",
               }),
-              { id: "blessing-of-waves", epi: "healAmp", sign: "nihilum" },
-              { id: "tactical-analysis", epi: "longHeal" },
-              { id: "whirlpool", epi: "drawHeal", sign: "vytor" },
+              { id: "spirit-of-the-aromata", epi: "passion" },
+              { id: "persona" },
             ],
           },
         },
       };
     </script>
+    <script src="neutral.js"></script>
     <script src="build.js"></script>
   </body>
 </html>
