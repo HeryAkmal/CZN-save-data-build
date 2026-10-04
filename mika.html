@@ -33,46 +33,22 @@
           <div class="eyebrow">CURRENT BUILD</div>
           <div class="build-box">
             <strong>MIKA</strong>
-            <span>8 cards</span>
+            <span id="build-count">8 cards</span>
           </div>
         </section>
 
         <section class="side-section status-section">
           <div class="eyebrow">BUILD STATUS</div>
-          <div class="valid"><span>●</span> Valid</div>
-          <span class="muted">0 / 180 pt</span>
-          <span class="muted">8 / 40 cards</span>
+          <div class="valid" id="status-valid">
+            <span>●</span> <span class="v-text">Valid</span>
+          </div>
+          <span class="muted" id="status-points">0 / 180 pt</span>
+          <span class="muted" id="status-cards">8 / 40 cards</span>
         </section>
 
         <section class="side-section character-section">
           <div class="eyebrow">CHARACTER</div>
-          <div class="character-list">
-            <button class="character selected" type="button">
-              <img src="assets/mika.png" alt="Mika" /><span class="label"
-                >Mika</span
-              >
-            </button>
-            <button class="character" type="button">
-              <img src="assets/aria.png" alt="Aria" /><span class="label"
-                >Aria</span
-              >
-            </button>
-            <button class="character" type="button">
-              <img src="assets/kaito.png" alt="Kaito" /><span class="label"
-                >Kaito</span
-              >
-            </button>
-            <button class="character" type="button">
-              <img src="assets/lila.png" alt="Lila" /><span class="label"
-                >Lila</span
-              >
-            </button>
-            <button class="character" type="button">
-              <img src="assets/zain.png" alt="Zain" /><span class="label"
-                >Zain</span
-              >
-            </button>
-          </div>
+          <div class="character-list" id="side-characters"></div>
         </section>
       </aside>
 
@@ -85,183 +61,7 @@
             </div>
           </header>
 
-          <div class="card-grid">
-            <article class="card selected-card">
-              <img
-                class="card-art"
-                src="assets/mika/water-arrow.png"
-                alt="Water Arrow"
-              />
-              <div class="top-overlay">
-                <div class="cost">1</div>
-                <div class="card-heading">
-                  <strong>Water Arrow</strong
-                  ><span
-                    ><img src="assets/card-type/attack.jpeg" alt="" /> Basic
-                    Attack</span
-                  >
-                </div>
-              </div>
-              <div class="bottom-overlay">
-                <div class="divider"></div>
-                <p>100% Damage</p>
-              </div>
-            </article>
-
-            <article class="card selected-card">
-              <img
-                class="card-art"
-                src="assets/mika/water-barrier.png"
-                alt="Water Barrier"
-              />
-              <div class="top-overlay">
-                <div class="cost">1</div>
-                <div class="card-heading">
-                  <strong>Water Barrier</strong
-                  ><span
-                    ><img src="assets/card-type/skill.jpeg" alt="" /> Basic
-                    Skill</span
-                  >
-                </div>
-              </div>
-              <div class="bottom-overlay">
-                <div class="divider"></div>
-                <p>Heal 130%</p>
-              </div>
-            </article>
-
-            <article class="card selected-card">
-              <img
-                class="card-art"
-                src="assets/mika/water-barrier.png"
-                alt="Water Barrier"
-              />
-              <div class="top-overlay">
-                <div class="cost">1</div>
-                <div class="card-heading">
-                  <strong>Water Barrier</strong
-                  ><span
-                    ><img src="assets/card-type/skill.jpeg" alt="" /> Basic
-                    Skill</span
-                  >
-                </div>
-              </div>
-              <div class="bottom-overlay">
-                <div class="divider"></div>
-                <p>Heal 130%</p>
-              </div>
-            </article>
-
-            <article class="card selected-card">
-              <img
-                class="card-art"
-                src="assets/mika/source-of-water.png"
-                alt="Source of Water"
-              />
-              <div class="top-overlay">
-                <div class="cost">0</div>
-                <div class="card-heading">
-                  <strong>Source of Water</strong
-                  ><span
-                    ><img src="assets/card-type/skill.jpeg" alt="" />
-                    Skill</span
-                  >
-                </div>
-              </div>
-              <div class="bottom-overlay">
-                <div class="divider"></div>
-                <p>Heal 100%<br />Gain 1 AP</p>
-              </div>
-            </article>
-
-            <article class="card selected-card">
-              <img
-                class="card-art"
-                src="assets/mika/blessing-of-waves.png"
-                alt="Blessing of Waves"
-              />
-              <div class="top-overlay">
-                <div class="cost">1</div>
-                <div class="card-heading">
-                  <strong>Blessing of Waves</strong
-                  ><span
-                    ><img src="assets/card-type/skill.jpeg" alt="" />
-                    Skill</span
-                  >
-                </div>
-              </div>
-              <div class="bottom-overlay">
-                <p class="tag">[ Retain ]</p>
-                <div class="divider"></div>
-                <p>Increase Heal Amount by 30% for each AP</p>
-              </div>
-            </article>
-
-            <article class="card selected-card">
-              <img
-                class="card-art"
-                src="assets/mika/tactical-analysis.png"
-                alt="Tactical Analysis"
-              />
-              <div class="top-overlay">
-                <div class="cost">1</div>
-                <div class="card-heading">
-                  <strong>Tactical Analysis</strong
-                  ><span
-                    ><img src="assets/card-type/skill.jpeg" alt="" />
-                    Skill</span
-                  >
-                </div>
-              </div>
-              <div class="bottom-overlay">
-                <div class="divider"></div>
-                <p>1 Wave<br />+50% Heal Amount for 1 turn</p>
-              </div>
-            </article>
-
-            <article class="card selected-card">
-              <img
-                class="card-art"
-                src="assets/mika/whirlpool.png"
-                alt="Whirlpool"
-              />
-              <div class="top-overlay">
-                <div class="cost">2</div>
-                <div class="card-heading">
-                  <strong>Whirlpool</strong
-                  ><span
-                    ><img src="assets/card-type/attack.jpeg" alt="" />
-                    Attack</span
-                  >
-                </div>
-              </div>
-              <div class="bottom-overlay">
-                <div class="divider"></div>
-                <p>
-                  200% Damage to all enemies<br />Heal 50% for each target hit
-                </p>
-              </div>
-            </article>
-
-            <article class="card selected-card">
-              <img class="card-art" src="assets/mika/deluge.png" alt="Deluge" />
-              <div class="top-overlay">
-                <div class="cost">1</div>
-                <div class="card-heading">
-                  <strong>Deluge</strong
-                  ><span
-                    ><img src="assets/card-type/upgrade.jpeg" alt="" />
-                    Upgrade</span
-                  >
-                </div>
-              </div>
-              <div class="bottom-overlay">
-                <p class="tag">[ Unique ]</p>
-                <div class="divider"></div>
-                <p>1 Wave<br />At the start of the turn, 1 Wave</p>
-              </div>
-            </article>
-          </div>
+          <div class="card-grid" id="card-grid"></div>
 
           <div class="selection-hint">
             Select a card to see details and edit options.
@@ -270,7 +70,7 @@
 
         <aside class="stats-panel" id="stats-panel">
           <div class="panel-head">
-            <h2 class="panel-title">BUILD OVERVIEW</h2>
+            <h2 class="panel-title">PRESET BUILDS</h2>
             <button
               class="icon-btn"
               id="toggle-stats"
@@ -283,49 +83,38 @@
             </button>
           </div>
           <div class="panel-body" id="panel-body">
+            <label class="preset-label" for="preset">LOAD PRESET</label>
+            <div class="select-wrap">
+              <select id="preset">
+                <option value="default">Default Build</option>
+                <option value="support">Support AP Build</option>
+                <option value="healer">Healer Build</option>
+              </select>
+            </div>
+            <p class="preset-desc" id="preset-desc"></p>
+
+            <div class="panel-divider"></div>
+            <h2>BUILD OVERVIEW</h2>
             <div class="stats-grid">
-              <div class="stat">
-                <span>Total Cards</span><strong>8 / 40</strong
+              <div class="stat" id="stat-cards">
+                <span>Total Cards</span><strong>0 / 40</strong
                 ><small>Minimum 1 card</small>
               </div>
-              <div class="stat">
+              <div class="stat" id="stat-points">
                 <span>Faint Memory</span><strong>0 / 180</strong
                 ><small>Memory points · pt</small>
               </div>
-              <div class="stat">
+              <div class="stat" id="stat-dupes">
                 <span>Duplicate Copies</span><strong>0 / 3</strong
                 ><small>Duplicate operations</small>
               </div>
-              <div class="stat">
+              <div class="stat" id="stat-removed">
                 <span>Removed Cards</span><strong>0 / 5</strong
                 ><small>Removal operations</small>
               </div>
             </div>
 
             <div class="panel-divider"></div>
-            <h2>EDIT FEATURES</h2>
-            <div class="actions">
-              <button type="button">
-                <span class="action-icon">＋</span>Add Card
-              </button>
-              <button type="button">
-                <span class="action-icon">♲</span>Remove Card
-              </button>
-              <button type="button">
-                <span class="action-icon">⧉</span>Duplicate Card
-              </button>
-              <button type="button">
-                <span class="action-icon">✦</span>Unique Epiphany
-              </button>
-              <button type="button">
-                <span class="action-icon">✦</span>Divine Epiphany
-              </button>
-              <button type="button">
-                <span class="action-icon">✦</span>Common Epiphany
-              </button>
-            </div>
-
-            <div class="panel-divider footer-divider"></div>
             <p class="footer-note">
               This is a fan-made build checker tool. No data is saved. For
               reference only.
@@ -341,6 +130,305 @@
       const sideBtn = document.getElementById("toggle-side");
       const statsBtn = document.getElementById("toggle-stats");
 
+      const sideChars = [
+        { id: "beryl", name: "Beryl" },
+        { id: "veronica", name: "Veronica" },
+        { id: "kayron", name: "Kayron" },
+        { id: "mei-lin", name: "Mei Lin" },
+        { id: "tiphera", name: "Tiphera" },
+        { id: "mika", name: "Mika", href: "mika.html" },
+      ];
+
+      document.getElementById("side-characters").innerHTML = sideChars
+        .map(
+          (
+            c,
+          ) => `<a class="character${c.id === "mika" ? " selected" : ""}" href="${c.href || "#"}">
+      <img src="assets/${c.id}.png" alt="" onerror="this.style.visibility='hidden'" />
+      <span class="label">${c.name}</span></a>`,
+        )
+        .join("");
+
+      const LIMITS = { cards: 40, points: 180, dupes: 3, removed: 5 };
+      const DUP_COST = [0, 0, 40, 40];
+      const DIVINE_COST = 20;
+      const REMOVE_STARTING_COST = 20;
+
+      const STARTING_DECK = [
+        "water-arrow",
+        "water-barrier",
+        "water-barrier",
+        "source-of-water",
+        "blessing-of-waves",
+        "tactical-analysis",
+        "whirlpool",
+        "deluge",
+      ];
+
+      // DATA KARTU
+      const cardDB = {
+        "water-arrow": {
+          name: "Water Arrow",
+          cost: 1,
+          type: "Basic Attack",
+          icon: "attack",
+          starting: true,
+          text: "100% Damage",
+        },
+        "water-barrier": {
+          name: "Water Barrier",
+          cost: 1,
+          type: "Basic Skill",
+          icon: "skill",
+          starting: true,
+          text: "Heal 130%",
+        },
+        "source-of-water": {
+          name: "Source of Water",
+          cost: 0,
+          type: "Skill",
+          icon: "skill",
+          text: "Heal 100%<br />Gain 1 AP",
+          epiphanies: {
+            recoverDraw: {
+              cost: 1,
+              kind: "divine",
+              sign: "nihilum",
+              text: "Heal 171%<br />Gain 2 AP<br />On Recover, decrease Cost by 1 for 1 turn until activated<br />{dv} Draw 1",
+            },
+            retainHeal: {
+              kind: "divine",
+              sign: "divine-source-heal",
+              tags: ["Retain"],
+              text: "Heal 222%<br />Gain 1 AP<br />Increase Heal Amount of the next card activated by 50%<br />{dv} Increase Heal Amount of this card by 30%",
+            },
+          },
+        },
+        "blessing-of-waves": {
+          name: "Blessing of Waves",
+          cost: 1,
+          type: "Skill",
+          icon: "skill",
+          tags: ["Retain"],
+          text: "Increase Heal Amount by 30% for each AP",
+          epiphanies: {
+            healAmp: {
+              kind: "divine",
+              sign: "divine-blessing",
+              text: "Heal 222%<br />Increase Heal Amount of the next card activated by 20% for each AP<br />{dv} Increase Heal Amount of this card by 30%",
+            },
+          },
+        },
+        "tactical-analysis": {
+          name: "Tactical Analysis",
+          cost: 1,
+          type: "Skill",
+          icon: "skill",
+          text: "1 Wave<br />+50% Heal Amount for 1 turn",
+          epiphanies: {
+            upgrade: {
+              cost: 0,
+              type: "Upgrade",
+              icon: "upgrade",
+              text: "2 Wave<br />+50% Heal Amount",
+            },
+            longHeal: {
+              cost: 0,
+              sign: "unique",
+              text: "2 Wave<br />+100% Heal Amount of this unit for 1 turn",
+            },
+          },
+        },
+        whirlpool: {
+          name: "Whirlpool",
+          cost: 2,
+          type: "Attack",
+          icon: "attack",
+          text: "200% Damage to all enemies<br />Heal 50% for each target hit",
+          epiphanies: {
+            drawHeal: {
+              kind: "divine",
+              sign: "divine-whirlpool",
+              text: "Heal 114%<br />114%(228%) Damage to all enemies<br />Increase Damage Amount equal to Heal Amount of this card<br />{dv} Draw 1 card(s) of this unit",
+            },
+          },
+        },
+        deluge: {
+          name: "Deluge",
+          cost: 1,
+          type: "Upgrade",
+          icon: "upgrade",
+          tags: ["Unique"],
+          text: "1 Wave<br />At the start of the turn, 1 Wave",
+          epiphanies: {
+            initiation: { tags: ["Unique", "Initiation"] },
+          },
+        },
+      };
+
+      const dupes = (n, card) =>
+        Array.from({ length: n }, () => ({ ...card, dup: true }));
+
+      const presets = {
+        default: {
+          desc: "Deck starter.",
+          cards: [...STARTING_DECK],
+        },
+        support: {
+          desc: "AP sekebon biar g kehabisan.",
+          cards: [
+            {
+              id: "source-of-water",
+              epi: "recoverDraw",
+              sign: "nihilum",
+            },
+            ...dupes(3, {
+              id: "source-of-water",
+              epi: "recoverDraw",
+              sign: "nihilum",
+            }),
+            { id: "tactical-analysis", epi: "upgrade", sign: "unique" },
+            { id: "deluge", epi: "initiation", sign: "unique" },
+          ],
+        },
+        healer: {
+          desc: "Healer kekebalan tubuh tahan 10 turn",
+          cards: [
+            {
+              id: "source-of-water",
+              epi: "retainHeal",
+              sign: "kyrken",
+            },
+            ...dupes(2, {
+              id: "source-of-water",
+              epi: "retainHeal",
+              sign: "kyrken",
+            }),
+            {
+              id: "blessing-of-waves",
+              epi: "healAmp",
+              sign: "nihilum",
+            },
+            { id: "whirlpool", epi: "drawHeal", sign: "vytor" },
+          ],
+        },
+      };
+
+      const cardGrid = document.getElementById("card-grid");
+      const presetSel = document.getElementById("preset");
+      const presetDesc = document.getElementById("preset-desc");
+      const $ = (id) => document.getElementById(id);
+
+      const hl = (t) =>
+        t.replace(/(\d+(?:\.\d+)?%?)/g, '<b class="num">$1</b>');
+      const fmt = (t, epi) =>
+        (epi ? hl(t) : t).replace(/\{dv\}/g, '<i class="dv"></i>');
+
+      function signHTML(e, c = {}) {
+        const kind = c.kind || e.kind || "epiphany";
+        const file =
+          c.sign ||
+          e.sign ||
+          (kind === "divine" ? "epiphany-divine" : "epiphany");
+        return `<span class="epi-sign ${kind}"><img src="assets/card-effect/${file}.png" alt="" onerror="this.parentNode.classList.add('no-img');this.remove()" /></span>`;
+      }
+
+      function cardHTML(c) {
+        const base = cardDB[c.id];
+        const e = c.epi ? base.epiphanies?.[c.epi] : null;
+        if (c.epi && !e)
+          console.warn(`Unknown epiphany "${c.epi}" on card "${c.id}"`);
+        const v = e ? { ...base, ...e } : base;
+        const costCls =
+          v.cost > base.cost ? " up" : v.cost < base.cost ? " down" : "";
+        const tags = [...(v.tags || []), ...(c.dup ? ["Duplicated"] : [])];
+        return `
+    <article class="card selected-card${e ? " epi" : ""}">
+      <img class="card-art" src="assets/mika/${c.id}.png" alt="${base.name}" />
+      <div class="top-overlay">
+        <div class="cost${costCls}">${v.cost}</div>
+        <div class="card-heading">
+          <strong>${base.name}</strong>
+          <span><img src="assets/card-type/${v.icon}.jpeg" alt="" /> ${v.type}</span>
+        </div>
+      </div>
+      ${e ? signHTML(e, c) : ""}
+      <div class="bottom-overlay">
+        ${tags.length ? `<p class="tag">[ ${tags.join(" / ")} ]</p>` : ""}
+        <div class="divider"></div>
+        <p>${fmt(v.text, e)}</p>
+      </div>
+    </article>`;
+      }
+
+      //STATS
+      function calcStats(cards) {
+        let points = 0,
+          removed = 0;
+        const kept = {};
+        cards
+          .filter((c) => !c.dup)
+          .forEach((c) => (kept[c.id] = (kept[c.id] || 0) + 1));
+
+        STARTING_DECK.forEach((id) => {
+          if (kept[id] > 0) kept[id]--;
+          else {
+            removed++;
+            if (cardDB[id].starting) points += REMOVE_STARTING_COST;
+          }
+        });
+
+        const dupes = cards.filter((c) => c.dup).length;
+        for (let i = 0; i < dupes; i++)
+          points += DUP_COST[Math.min(i, DUP_COST.length - 1)];
+
+        cards.forEach((c) => {
+          if (cardDB[c.id].epiphanies?.[c.epi]?.kind === "divine")
+            points += DIVINE_COST;
+        });
+
+        return { total: cards.length, points, dupes, removed };
+      }
+
+      function renderStats(s) {
+        const set = (id, val, max) => {
+          const el = $(id);
+          el.querySelector("strong").textContent = `${val} / ${max}`;
+          el.classList.toggle("over", val > max);
+        };
+        set("stat-cards", s.total, LIMITS.cards);
+        set("stat-points", s.points, LIMITS.points);
+        set("stat-dupes", s.dupes, LIMITS.dupes);
+        set("stat-removed", s.removed, LIMITS.removed);
+
+        const ok =
+          s.total >= 1 &&
+          s.total <= LIMITS.cards &&
+          s.points <= LIMITS.points &&
+          s.dupes <= LIMITS.dupes &&
+          s.removed <= LIMITS.removed;
+        $("status-valid").classList.toggle("invalid", !ok);
+        $("status-valid").querySelector(".v-text").textContent = ok
+          ? "Valid"
+          : "Invalid";
+        $("status-points").textContent = `${s.points} / ${LIMITS.points} pt`;
+        $("status-cards").textContent = `${s.total} / ${LIMITS.cards} cards`;
+        $("build-count").textContent = `${s.total} cards`;
+      }
+
+      function loadPreset(key) {
+        const p = presets[key] || presets.default;
+        const cards = p.cards.map((c) =>
+          typeof c === "string" ? { id: c } : c,
+        );
+        cardGrid.innerHTML = cards.map(cardHTML).join("");
+        presetDesc.textContent = p.desc;
+        renderStats(calcStats(cards));
+      }
+
+      presetSel.addEventListener("change", () => loadPreset(presetSel.value));
+      loadPreset(presetSel.value);
+
       function setSide(collapsed) {
         shell.classList.toggle("side-collapsed", collapsed);
         sideBtn.setAttribute("aria-expanded", String(!collapsed));
@@ -349,6 +437,7 @@
           collapsed ? "Expand navigation" : "Collapse navigation",
         );
       }
+
       function setStats(collapsed) {
         panel.classList.toggle("collapsed", collapsed);
         statsBtn.setAttribute("aria-expanded", String(!collapsed));
@@ -366,7 +455,6 @@
         setStats(!panel.classList.contains("collapsed")),
       );
 
-      // Default state by screen width
       setSide(window.innerWidth < 1100);
       setStats(window.innerWidth < 1300);
     </script>

@@ -768,6 +768,152 @@ a.character {
 .stats-panel.collapsed .panel-body {
   display: none;
 }
+/* Preset dropdown */
+.preset-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+.select-wrap {
+  position: relative;
+}
+.select-wrap::after {
+  content: "▾";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-dark);
+  pointer-events: none;
+}
+.select-wrap select {
+  width: 100%;
+  height: 48px;
+  padding: 0 36px 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+.select-wrap select:hover {
+  background: var(--soft);
+  border-color: #cbd1d9;
+}
+.preset-desc {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted-dark);
+}
+/* Build stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.stat {
+  min-height: 110px;
+  padding: 16px 12px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stat span {
+  font-size: 10px;
+  color: var(--muted-dark);
+}
+.stat strong {
+  font-size: 24px;
+  line-height: 38px;
+  font-weight: 700;
+}
+.stat small {
+  font-size: 9px;
+  color: var(--muted);
+}
+.stat.over strong {
+  color: #e0483a;
+}
+
+.valid.invalid {
+  border-left-color: #e0483a;
+  background: #fdeeed;
+  color: #e0483a;
+}
+
+/* Divine ephy*/
+.dv {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 3px;
+  vertical-align: -1px;
+}
+.dv::before {
+  content: "✦";
+  font-style: normal;
+  font-size: 11px;
+  line-height: 1;
+  color: #ffd36b;
+}
+
+.card {
+  --sign-left: 12px;
+  --sign-top: 66px;
+}
+.epi-sign {
+  position: absolute;
+  left: var(--sign-left);
+  top: var(--sign-top);
+  width: 32px;
+  height: 32px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.epi-sign.divine {
+  width: 26px;
+  height: 58px;
+  left: calc(var(--sign-left) + 3px);
+}
+.epi-sign img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.epi-sign.no-img {
+  border: 1px dashed rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.3);
+}
+.epi-sign.no-img::before {
+  content: "✹";
+  font-size: 20px;
+  line-height: 1;
+  color: #ffb347;
+  text-shadow: 0 0 6px rgba(255, 170, 60, 0.8);
+}
+.epi-sign.divine.no-img::before {
+  content: "✦";
+  color: #ffd36b;
+  text-shadow: 0 0 8px rgba(255, 200, 80, 0.9);
+}
 
 @media (max-width: 1024px) {
   .workspace {
