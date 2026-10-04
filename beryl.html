@@ -134,149 +134,161 @@
         Array.from({ length: n }, () => ({ ...card, dup: true }));
 
       const START = [
-        "water-arrow",
-        "water-barrier",
-        "water-barrier",
-        "source-of-water",
-        "blessing-of-waves",
-        "tactical-analysis",
-        "whirlpool",
-        "deluge",
+        "launcher",
+        "charge-launcher",
+        "barrier",
+        "opening-found",
+        "charged-shot",
+        "guilty-pleasure",
+        "unlimited-firepower",
+        "heavy-weapons-specialist",
       ];
 
       const CHAR = {
-        id: "mika",
-        name: "Mika",
+        id: "beryl",
+        name: "Beryl",
         startingDeck: START,
         cardDB: {
-          "water-arrow": {
-            name: "Water Arrow",
+          launcher: {
+            name: "Launcher",
             cost: 1,
             type: "Basic Attack",
             icon: "attack",
             starting: true,
             text: "100% Damage",
           },
-          "water-barrier": {
-            name: "Water Barrier",
+          "charge-launcher": {
+            name: "Charge Launcher",
+            cost: 2,
+            type: "Basic Attack",
+            icon: "attack",
+            starting: true,
+            text: "220% Damage",
+          },
+          barrier: {
+            name: "Barrier",
             cost: 1,
             type: "Basic Skill",
             icon: "skill",
             starting: true,
-            text: "Heal 130%",
+            text: "100% Shield",
           },
-          "source-of-water": {
-            name: "Source of Water",
-            cost: 0,
-            type: "Skill",
-            icon: "skill",
-            text: "Heal 100%<br />Gain 1 AP",
-            epiphanies: {
-              recoverDraw: {
-                cost: 1,
-                kind: "divine",
-                sign: "nihilum",
-                text: "Heal 171%<br />Gain 2 AP<br />On Recover, decrease Cost by 1 for 1 turn until activated<br />{dv} Draw 1",
-              },
-              retainHeal: {
-                kind: "divine",
-                sign: "divine-source-heal",
-                tags: ["Retain"],
-                text: "Heal 222%<br />Gain 1 AP<br />Increase Heal Amount of the next card activated by 50%<br />{dv} Increase Heal Amount of this card by 30%",
-              },
-            },
-          },
-          "blessing-of-waves": {
-            name: "Blessing of Waves",
+          "opening-found": {
+            name: "Opening Found",
             cost: 1,
-            type: "Skill",
+            type: "Basic Skill",
             icon: "skill",
             tags: ["Retain"],
-            text: "Increase Heal Amount by 30% for each AP",
-            epiphanies: {
-              healAmp: {
-                kind: "divine",
-                sign: "divine-blessing",
-                text: "Heal 222%<br />Increase Heal Amount of the next card activated by 20% for each AP<br />{dv} Increase Heal Amount of this card by 30%",
-              },
-            },
-          },
-          "tactical-analysis": {
-            name: "Tactical Analysis",
-            cost: 1,
-            type: "Skill",
-            icon: "skill",
-            text: "1 Wave<br />+50% Heal Amount for 1 turn",
+            text: "160% Damage.<br />Retain: Add 1 Hit(s) for 1 turn.",
             epiphanies: {
               upgrade: {
-                cost: 0,
+                cost: 1,
                 type: "Upgrade",
                 icon: "upgrade",
-                text: "2 Wave<br />+50% Heal Amount",
-              },
-              longHeal: {
-                cost: 0,
-                sign: "unique",
-                text: "2 Wave<br />+100% Heal Amount of this unit for 1 turn",
+                text: "When a card of this unit is retained, 150% Extra Attack to random enemies.",
               },
             },
           },
-          whirlpool: {
-            name: "Whirlpool",
+          "charged-shot": {
+            name: "Charged Shot",
             cost: 2,
-            type: "Attack",
+            type: "attack",
             icon: "attack",
-            text: "200% Damage to all enemies<br />Heal 50% for each target hit",
+            tags: ["Retain"],
+            text: "270% Damage.<br />Retain: Damage +135%.",
+          },
+          "guilty-pleasure": {
+            name: "Guilty Pleasure",
+            cost: 0,
+            type: "skill",
+            icon: "skill",
+            tags: ["Exhaust"],
+            text: "Gain 1 AP.<br />Retain: Gain 2 AP.",
             epiphanies: {
-              drawHeal: {
+              retain: {
                 kind: "divine",
-                sign: "divine-whirlpool",
-                text: "Heal 114%<br />114%(228%) Damage to all enemies<br />Increase Damage Amount equal to Heal Amount of this card<br />{dv} Draw 1 card(s) of this unit",
+                tags: "",
+                text: "Draw 1<br />Activate all Retain effects of cards of this unit in hand<br />{dv} Gain 1 AP",
+              },
+              morale: {
+                kind: "divine",
+                addTags: ["Initiation"],
+                text: "Draw 3<br/>1 Morale<br/>{dv}Apply Initiation to this card",
+              },
+              morale2: {
+                kind: "divine",
+                text: "Draw 3<br/>1 Morale<br/>{dv}1 AP",
               },
             },
           },
-          deluge: {
-            name: "Deluge",
+          "unlimited-firepower": {
+            name: "Unlimited Firepower",
             cost: 1,
-            type: "Upgrade",
-            icon: "upgrade",
-            tags: ["Unique / Initiation"],
-            text: "1 Wave<br />At the start of the turn, 1 Wave",
+            type: "skill",
+            icon: "skill",
+            text: "114% Shield.<br />80% Damage Amount to the next Attack Card of this unit activated.",
+            epiphanies: {
+              upgradeDmg: {
+                cost: 1,
+                type: "Upgrade",
+                icon: "upgrade",
+                text: "Increases Damage Amount of Attacks Cards of this unit by 30%.",
+              },
+            },
+          },
+          "heavy-weapons-specialist": {
+            name: "Heavy Weapons Specialist",
+            cost: 0,
+            type: "skill",
+            icon: "skill",
+            text: "Create 1 Opening Found or Charged Shot, then apply Exhaust to that card and decrease Cost by 1 until activated.",
           },
         },
         presets: {
           default: {
             label: "Default Build",
-            desc: "Deck starter.",
+            desc: "Starter deck.",
             cards: [...START],
           },
-          support: {
-            label: "Support AP Build",
-            desc: "AP sekebon biar g kehabisan.",
+          openingFound: {
+            label: "Opening Found Build",
+            desc: "Nembak otomatis saat retain.",
             cards: [
-              { id: "source-of-water", epi: "recoverDraw", sign: "nihilum" },
+              { id: "opening-found", epi: "upgrade", sign: "unique" },
               ...dupes(3, {
-                id: "source-of-water",
-                epi: "recoverDraw",
-                sign: "nihilum",
+                id: "opening-found",
+                epi: "upgrade",
+                sign: "unique",
               }),
-              { id: "tactical-analysis", epi: "upgrade", sign: "unique" },
-              { id: "deluge", epi: "initiation", sign: "unique" },
+              { id: "guilty-pleasure", epi: "retain", sign: "vytor" },
+              { id: "unlimited-firepower", epi: "upgradeDmg", sign: "unique" },
+              { id: "spore-harvester", epi: "draw", sign: "unique" },
+              { id: "negotiate", epi: "draw", sign: "unique" },
+              { id: "negotiate", epi: "draw", sign: "unique" },
             ],
           },
-          healer: {
-            label: "Healer Build",
-            desc: "Healer kekebalan tubuh tahan 10 turn",
+          Initiator: {
+            label: "Initiator Build",
+            desc: "Tukang draw, buff, sekalian sub-DPS.",
             cards: [
-              { id: "source-of-water", epi: "retainHeal", sign: "kyrken" },
-              ...dupes(2, {
-                id: "source-of-water",
-                epi: "retainHeal",
-                sign: "kyrken",
+              { id: "opening-found", epi: "upgrade", sign: "unique" },
+              { id: "guilty-pleasure", epi: "morale", sign: "vytor" },
+              ...dupes(1, {
+                id: "guilty-pleasure",
+                epi: "morale",
+                sign: "vytor",
               }),
-              { id: "blessing-of-waves", epi: "healAmp", sign: "nihilum" },
-              { id: "tactical-analysis", epi: "longHeal" },
-              { id: "whirlpool", epi: "drawHeal", sign: "vytor" },
+              {
+                id: "guilty-pleasure",
+                epi: "morale2",
+                sign: "nihilum",
+              },
+              ...dupes(1, {
+                id: "guilty-pleasure",
+                epi: "morale2",
+                sign: "nihilum",
+              }),
+              { id: "unlimited-firepower", epi: "upgradeDmg", sign: "unique" },
             ],
           },
         },

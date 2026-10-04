@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chaos Zero Nightmare Characters Build Guides</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="build.js"></script>
   </head>
   <body>
     <div class="app-shell">
@@ -19,9 +20,6 @@
             aria-label="Collapse navigation"
           >
             ☰
-          </button>
-          <button class="back-btn" type="button" aria-label="Back">
-            <span class="arrow">←</span><span class="label">Back</span>
           </button>
         </div>
 
@@ -140,7 +138,6 @@
           tone: "gold",
           el: "justice",
           role: "controller",
-          href: "mika.html",
         },
       ];
 
@@ -151,7 +148,7 @@
       const input = document.getElementById("search");
       const clear = document.getElementById("clear");
 
-      const href = (c) => c.href || "#";
+      const href = (c) => c.href || `${c.id}.html`;
 
       side.innerHTML = characters
         .map(

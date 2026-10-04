@@ -240,8 +240,11 @@
             cost: 1,
             type: "Upgrade",
             icon: "upgrade",
-            tags: ["Unique / Initiation"],
+            tags: ["Unique"],
             text: "1 Wave<br />At the start of the turn, 1 Wave",
+            epiphanies: {
+              initiation: { tags: ["Unique", "Initiation"] },
+            },
           },
         },
         presets: {
@@ -282,7 +285,6 @@
         },
       };
     </script>
-    <script src="neutral.js"></script>
     <script src="build.js"></script>
   </body>
 </html>
