@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chaos Zero Nightmare Characters Build Guides</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="side-top">
+          <button
+            class="icon-btn"
+            id="toggle-side"
+            type="button"
+            aria-expanded="true"
+            aria-controls="sidebar"
+            aria-label="Collapse navigation"
+          >
+            ☰
+          </button>
+          <button class="back-btn" type="button" aria-label="Back">
+            <span class="arrow">←</span><span class="label">Back</span>
+          </button>
+        </div>
+
+        <div class="brand">
+          <img src="assets/logo.png" alt="Chaos Zero Nightmare" />
+        </div>
+
+        <section class="side-section">
+          <div class="eyebrow">CURRENT BUILD</div>
+          <div class="build-box">
+            <strong>NONE</strong>
+            <span>- cards</span>
+          </div>
+        </section>
+
+        <section class="side-section status-section">
+          <div class="eyebrow">BUILD STATUS</div>
+          <div class="valid"><span>●</span> Valid</div>
+          <span class="muted">0 / 180 pt</span>
+          <span class="muted">8 / 40 cards</span>
+        </section>
+
+        <section class="side-section character-section">
+          <div class="eyebrow">CHARACTER</div>
+          <div class="character-list" id="side-characters"></div>
+        </section>
+      </aside>
+
+      <main class="home">
+        <header class="hero">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="#">Chaos Zero Nightmare</a> / <span>Characters list</span>
+          </nav>
+          <div class="hero-body">
+            <div class="ph hero-thumb">
+              <img src="assets/logo/game-logo.png" />
+            </div>
+
+            <div class="hero-text">
+              <h1>Chaos Zero Nightmare Characters Build Guides</h1>
+              <p>
+                Browse all Chaos Zero Nightmare characters with links to CZN
+                build guides covering decks, Memory Fragments, equipment, teams,
+                classes, and more.
+              </p>
+              <small>Last updated: 25 September 2025</small>
+            </div>
+          </div>
+        </header>
+
+        <section class="char-section" aria-labelledby="char-title">
+          <div class="char-head">
+            <h2 id="char-title">All Chaos Zero Nightmare Characters</h2>
+            <span class="count" id="count" aria-live="polite"></span>
+          </div>
+
+          <div class="search">
+            <input
+              id="search"
+              type="search"
+              placeholder="Search characters..."
+              aria-label="Search characters"
+              autocomplete="off"
+            />
+            <button id="clear" type="button" aria-label="Clear search" hidden>
+              ✕
+            </button>
+          </div>
+
+          <div class="char-grid" id="char-grid"></div>
+          <p class="empty" id="empty" hidden></p>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const characters = [
+        {
+          id: "beryl",
+          name: "Beryl",
+          tone: "gold",
+          el: "justice",
+          role: "ranger",
+        },
+        {
+          id: "veronica",
+          name: "Veronica",
+          tone: "violet",
+          el: "passion",
+          role: "ranger",
+        },
+        {
+          id: "kayron",
+          name: "Kayron",
+          tone: "violet",
+          el: "void",
+          role: "psionic",
+        },
+        {
+          id: "mei-lin",
+          name: "Mei Lin",
+          tone: "violet",
+          el: "passion",
+          role: "striker",
+        },
+        {
+          id: "tiphera",
+          name: "Tiphera",
+          tone: "violet",
+          el: "instinct",
+          role: "controller",
+        },
+        {
+          id: "mika",
+          name: "Mika",
+          tone: "gold",
+          el: "justice",
+          role: "controller",
+          href: "mika.html",
+        },
+      ];
+
+      const grid = document.getElementById("char-grid");
+      const side = document.getElementById("side-characters");
+      const count = document.getElementById("count");
+      const empty = document.getElementById("empty");
+      const input = document.getElementById("search");
+      const clear = document.getElementById("clear");
+
+      const href = (c) => c.href || "#";
+
+      side.innerHTML = characters
+        .map(
+          (c) => `<a class="character" href="${href(c)}">
+            <img src="assets/char-card/${c.id}.webp" alt="" onerror="this.style.visibility='hidden'" />
+            <span class="label">${c.name}</span></a>`,
+        )
+        .join("");
+
+      function render(q = "") {
+        const list = characters.filter((c) =>
+          c.name.toLowerCase().includes(q.trim().toLowerCase()),
+        );
+        grid.innerHTML = list
+          .map(
+            (c) => `<a class="char-card ${c.tone}" href="${href(c)}">
+            <span class="ph char-art">
+                <img src="assets/char-card/${c.id}.webp" alt="${c.name}" onerror="this.remove()" />
+            </span>
+            <span class="badges">
+                <span class="badge el-${c.el}">
+                <img src="assets/char-element/${c.el}.webp" alt="${c.el}" onerror="this.remove()" />
+                </span>
+            <span class="badge dark">
+                <img src="assets/char-class/${c.role}.webp" alt="${c.role}" onerror="this.remove()" />
+            </span>
+            </span>
+              <strong class="char-name">${c.name}</strong>
+            </a>`,
+          )
+          .join("");
+        count.textContent = `Showing ${list.length} ${list.length === 1 ? "Character" : "Characters"}`;
+        empty.hidden = list.length > 0;
+        empty.textContent = `No characters match “${q.trim()}”. Clear the search to see everyone.`;
+        clear.hidden = !q;
+      }
+
+      input.addEventListener("input", () => render(input.value));
+      clear.addEventListener("click", () => {
+        input.value = "";
+        render();
+        input.focus();
+      });
+      render();
+
+      // Sidebar collapse
+      const shell = document.querySelector(".app-shell");
+      const sideBtn = document.getElementById("toggle-side");
+      function setSide(collapsed) {
+        shell.classList.toggle("side-collapsed", collapsed);
+        sideBtn.setAttribute("aria-expanded", String(!collapsed));
+        sideBtn.setAttribute(
+          "aria-label",
+          collapsed ? "Expand navigation" : "Collapse navigation",
+        );
+      }
+      sideBtn.addEventListener("click", () =>
+        setSide(!shell.classList.contains("side-collapsed")),
+      );
+      setSide(window.innerWidth < 1100);
+    </script>
+  </body>
+</html>
