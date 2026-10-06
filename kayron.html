@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kayron / Combat Archive</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="side-top">
+          <button
+            class="icon-btn"
+            id="toggle-side"
+            type="button"
+            aria-expanded="true"
+            aria-controls="sidebar"
+            aria-label="Collapse navigation"
+          >
+            ☰
+          </button>
+          <button
+            class="back-btn"
+            type="button"
+            aria-label="Back"
+            onclick="location.href = 'index.html'"
+          >
+            <span class="arrow">←</span><span class="label">Back</span>
+          </button>
+        </div>
+
+        <div class="brand">
+          <img src="assets/logo.png" alt="Chaos Zero Nightmare" />
+        </div>
+
+        <section class="side-section">
+          <div class="eyebrow">CURRENT BUILD</div>
+          <div class="build-box">
+            <strong id="build-name">KAYRON</strong>
+            <span id="build-count">8 cards</span>
+          </div>
+        </section>
+
+        <section class="side-section status-section">
+          <div class="eyebrow">BUILD STATUS</div>
+          <div class="valid" id="status-valid">
+            <span>●</span> <span class="v-text">Valid</span>
+          </div>
+          <span class="muted" id="status-points">0 / 180 pt</span>
+          <span class="muted" id="status-cards">8 / 40 cards</span>
+        </section>
+
+        <section class="side-section character-section">
+          <div class="eyebrow">CHARACTER</div>
+          <div class="character-list" id="side-characters"></div>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <section class="deck-overview">
+          <header class="workspace-header">
+            <nav class="crumbs" aria-label="Breadcrumb">
+              <a href="index.html" style="color: var(--muted-dark)"
+                >Chaos Zero Nightmare</a
+              >
+              <span style="color: var(--muted-dark)"
+                >/ <span id="char-name">Kayron</span></span
+              >
+            </nav>
+          </header>
+
+          <div class="card-grid" id="card-grid"></div>
+        </section>
+
+        <aside class="stats-panel" id="stats-panel">
+          <div class="panel-head">
+            <h2 class="panel-title">PRESET BUILDS</h2>
+            <button
+              class="icon-btn"
+              id="toggle-stats"
+              type="button"
+              aria-expanded="true"
+              aria-controls="panel-body"
+              aria-label="Collapse build panel"
+            >
+              »
+            </button>
+          </div>
+          <div class="panel-body" id="panel-body">
+            <label class="preset-label" for="preset">LOAD PRESET</label>
+            <div class="select-wrap">
+              <select id="preset"></select>
+            </div>
+            <p class="preset-desc" id="preset-desc"></p>
+
+            <div class="panel-divider"></div>
+            <h2>BUILD OVERVIEW</h2>
+            <div class="stats-grid">
+              <div class="stat" id="stat-cards">
+                <span>Total Cards</span><strong>0 / 40</strong
+                ><small>Minimum 1 card</small>
+              </div>
+              <div class="stat" id="stat-points">
+                <span>Faint Memory</span><strong>0 / 180</strong
+                ><small>Memory points · pt</small>
+              </div>
+              <div class="stat" id="stat-dupes">
+                <span>Duplicate Copies</span><strong>0 / 3</strong
+                ><small>Duplicate operations</small>
+              </div>
+              <div class="stat" id="stat-removed">
+                <span>Removed Cards</span><strong>0 / 5</strong
+                ><small>Removal operations</small>
+              </div>
+            </div>
+
+            <div class="panel-divider"></div>
+            <p class="footer-note">
+              This is a fan-made build checker tool. No data is saved. For
+              reference only.
+            </p>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script>
+      const dupes = (n, card) =>
+        Array.from({ length: n }, () => ({ ...card, dup: true }));
+
+      const START = [
+        "elimination",
+        "elimination",
+        "sphere",
+        "echo-of-futility",
+        "brand-of-annihilation",
+        "black-hole",
+        "oath-of-vanity",
+        "echoes-of-true-abyss",
+      ];
+
+      const CHAR = {
+        id: "kayron",
+        name: "Kayron",
+        startingDeck: START,
+        cardDB: {
+          elimination: {
+            name: "Elimination",
+            cost: 1,
+            type: "Basic Attack",
+            icon: "attack",
+            starting: true,
+            text: "100% Damage",
+          },
+          sphere: {
+            name: "Sphere",
+            cost: 1,
+            type: "Basic Skill",
+            icon: "skill",
+            starting: true,
+            text: "Heal 100%",
+          },
+          "brand-of-annihilation": {
+            name: "Brand of Annihilation",
+            cost: 3,
+            type: "Attack",
+            icon: "attack",
+            text: "400% Damage to all enemies<br/>When a card is Exhausted, decrease Cost of this card by 1 for 1 turn until activated",
+            epiphanies: {
+              scale: {
+                tags: ["Weakness Attack"],
+                sign: "sekred",
+                cost: 1,
+                kind: "divine",
+                text: "300% Damage to all enemies<br/>+40% base Damage Amount for each card Exhausted this turn<br/>{dv}Always Attack Weakness",
+              },
+            },
+          },
+          "black-hole": {
+            name: "Black Hole",
+            cost: 2,
+            type: "Attack",
+            icon: "attack",
+            text: "240% Damage<br/>+40% base Damage Amount for each Futility Exhausted",
+            epiphanies: {
+              scale: {
+                sign: "nihilum",
+                kind: "divine",
+                tags: ["Weakness Attack"],
+                text: "360% Damage<br/>+60% base Damage Amount for each Futility Exhausted<br/>{dv}Always Attack Weakness",
+              },
+            },
+          },
+          "oath-of-vanity": {
+            name: "Oath of Vanity",
+            cost: 1,
+            type: "Upgrade",
+            icon: "upgrade",
+            tags: ["Unique"],
+            text: "When Futility is created, change those cards into 1-Cost Attack Cards with 100% Damage and Heal effects",
+            epiphanies: {
+              exhaust: {
+                cost: 0,
+                type: "Skill",
+                icon: "skill",
+                sign: "unique",
+                tags: ["Exhaust / Retain"],
+                text: "Exhaust all Futility, Status Ailment, and Curse Cards in hand<br/>Draw for each",
+              },
+            },
+          },
+          "echo-of-futility": {
+            name: "Echo of Futility",
+            cost: 1,
+            type: "Attack",
+            icon: "attack",
+            text: "320% Damage<br/>Create 2 Futility",
+            epiphanies: {
+              scale: {
+                cost: 0,
+                sign: "unique",
+                text: "150% Damage<br/>Create 2 Futility<br/>+30% base Damage Amount for each Futility created this battle",
+              },
+              AP: {
+                cost: 0,
+                sign: "kyrken",
+                kind: "divine",
+                text: "150% Damage<br/>Create 2 Futility<br/>+30% base Damage Amount for each Futility created this battle<br/>{dv}Gain 1 AP",
+              },
+            },
+          },
+          "echoes-of-true-abyss": {
+            name: "Echoes of True Abyss",
+            cost: 2,
+            type: "Attack",
+            icon: "attack",
+            text: "240% Damage<br/>Create 3 Futility<br/>+40% base Damage Amount for each created",
+          },
+        },
+        presets: {
+          default: {
+            label: "Default Build",
+            desc: "Deck starter.",
+            cards: [...START],
+          },
+          echo: {
+            label: "Echo Scaling Build",
+            desc: "Tumpuk stack Echo untuk burst",
+            cards: [
+              { id: "echo-of-futility", epi: "scale" },
+              ...dupes(2, {
+                id: "echo-of-futility",
+                epi: "AP",
+              }),
+              { id: "black-hole", epi: "scale" },
+              ...dupes(1, {
+                id: "black-hole",
+                epi: "scale",
+              }),
+              { id: "oath-of-vanity", epi: "exhaust" },
+              { id: "echoes-of-true-abyss" },
+            ],
+          },
+          tiph: {
+            label: "Tiphera Exhaust Build",
+            desc: "Exhaust kartu sebanyak-banyaknya",
+            cards: [
+              { id: "echo-of-futility", epi: "scale" },
+              { id: "brand-of-annihilation", epi: "scale" },
+              ...dupes(3, {
+                id: "brand-of-annihilation",
+                epi: "scale",
+              }),
+              { id: "oath-of-vanity", epi: "exhaust" },
+              { id: "echoes-of-true-abyss" },
+            ],
+          },
+        },
+      };
+    </script>
+    <script src="neutral.js"></script>
+    <script src="build.js"></script>
+  </body>
+</html>

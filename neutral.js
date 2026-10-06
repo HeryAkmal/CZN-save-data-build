@@ -34,7 +34,7 @@ const NEUTRAL = {
     text: "250% Shield<br/>Move 1 random Attack Card(s) of this unit from Graveyard to hand",
   },
   "one-with-all": {
-    name: "One With ALl",
+    name: "One With All",
     cost: "🛇",
     type: "Skill",
     icon: "skill",
