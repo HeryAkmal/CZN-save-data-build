@@ -67,8 +67,10 @@ function cardHTML(c) {
   if (c.epi && !e)
     console.warn(`Unknown epiphany "${c.epi}" on card "${c.id}"`);
   const v = e ? { ...base, ...e } : base;
-  const costCls =
-    v.cost > base.cost ? " up" : v.cost < base.cost ? " down" : "";
+  let costCls = "";
+  if (typeof v.cost !== "number") costCls = " na";
+  else if (typeof base.cost === "number")
+    costCls = v.cost > base.cost ? " up" : v.cost < base.cost ? " down" : "";
   const tags = tagList(base, e, c);
   return `
 <article class="card selected-card${e ? " epi" : ""}">

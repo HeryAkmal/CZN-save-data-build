@@ -33,4 +33,12 @@ const NEUTRAL = {
     tags: ["Unique / Exhaust 2"],
     text: "250% Shield<br/>Move 1 random Attack Card(s) of this unit from Graveyard to hand",
   },
+  "one-with-all": {
+    name: "One With ALl",
+    cost: "🛇",
+    type: "Skill",
+    icon: "skill",
+    tags: ["Finale / Exhaust"],
+    text: "Select and proc 1 card(s) in hand, Draw Pile, or Discard Pile<br/>For 1 turn, when each of Damage, Shield, and Heal has been activated through cards, remove Unactivable",
+  },
 };
