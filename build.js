@@ -71,6 +71,7 @@ function cardHTML(c) {
   if (typeof v.cost !== "number") costCls = " na";
   else if (typeof base.cost === "number")
     costCls = v.cost > base.cost ? " up" : v.cost < base.cost ? " down" : "";
+  const typeLabel = v.type.replace(/\b[a-z]/g, (m) => m.toUpperCase());
   const tags = tagList(base, e, c);
   return `
 <article class="card selected-card${e ? " epi" : ""}">
@@ -79,7 +80,7 @@ function cardHTML(c) {
 <div class="cost${costCls}">${v.cost}</div>
 <div class="card-heading">
     <strong>${base.name}</strong>
-    <span><img src="assets/card-type/${v.icon}.jpeg" alt="" /> ${v.type}</span>
+    <span><img src="assets/card-type/${v.icon}.jpeg" alt="" /> ${typeLabel}</span>
 </div>
 </div>
 ${e ? signHTML(e, c) : ""}
@@ -204,5 +205,4 @@ statsBtn.addEventListener("click", () =>
   setStats(!panel.classList.contains("collapsed")),
 );
 
-setSide(window.innerWidth < 1100);
 setStats(window.innerWidth < 1300);
